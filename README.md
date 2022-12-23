@@ -14,5 +14,5 @@ Clearly this is a big undertaking, so I'm working to incrementally add examples 
 
 ## Technical specifications
 
-- React `v18`
-- TypeScript ``
+- React `18`
+- TypeScript `4.9`
