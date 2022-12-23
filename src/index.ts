@@ -1,2 +1,3 @@
-import "../assets/css/styles.css";
-export { Button, ButtonProps } from "./bricks/Button";
+import { Alert, AlertBody, AlertHeading, AlertText } from "./bricks/Alert";
+
+export { Alert, AlertBody, AlertHeading, AlertText };
