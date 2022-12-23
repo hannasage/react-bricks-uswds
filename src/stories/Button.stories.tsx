@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import React, { useState } from "react";
+import { storiesOf } from "@storybook/react";
 
-import { Button } from '../';
+import { Button } from "../";
 
-const stories = storiesOf('Button', module);
+const stories = storiesOf("Button", module);
 
-stories.add('Button', () => {
-    const [value, setValue] = useState('Hello');
-    const setChange = () => {
-        setValue(value === 'Hello' ? 'Bye' : 'Hello');
-    };
-    return <Button onClick={setChange}>{value}</Button>;
+stories.add("Button", () => {
+  const [value, setValue] = useState("Hello");
+  const setChange = () => {
+    setValue(value === "Hello" ? "Bye" : "Hello");
+  };
+  return <Button onClick={setChange}>{value}</Button>;
 });

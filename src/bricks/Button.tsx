@@ -6,5 +6,9 @@ export interface ButtonProps {
 }
 
 export const Button = ({ children, onClick }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>;
+  return (
+    <button className="usa-button" onClick={onClick}>
+      {children}
+    </button>
+  );
 };

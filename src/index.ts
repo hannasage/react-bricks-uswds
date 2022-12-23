@@ -1,1 +1,1 @@
-export { Button, ButtonProps } from "./bricks/Button"
+export { Button, ButtonProps } from "./bricks/Button";
