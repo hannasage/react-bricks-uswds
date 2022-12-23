@@ -102,8 +102,8 @@ export const Alert = ({
       className={wrapperClasses}
     >
       <AlertBody className={bodyClasses}>
-        <AlertHeading className={headingClasses} text={heading} />
-        <AlertText className={textClasses}>{content}</AlertText>
+        {heading && <AlertHeading className={headingClasses} text={heading} />}
+        {content && <AlertText className={textClasses}>{content}</AlertText>}
       </AlertBody>
     </AlertWrapper>
   );
