@@ -1,7 +1,6 @@
 /* styles.scss */
 
 // 1. Load USWDS settings
-@forward "uswds-settings.scss";
-
+@forward "./sass/styles.scss";
 // 2. Load USWDS source code
 @forward "./node_modules/@uswds/uswds/packages/uswds/_index.scss";
