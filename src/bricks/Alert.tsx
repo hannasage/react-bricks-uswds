@@ -15,8 +15,8 @@ export enum AlertSeverity {
 interface AlertWrapperCustomProps {
   severity?: AlertSeverity;
   slim?: boolean;
+  noIcon?: boolean;
   site?: boolean;
-  emergency?: boolean;
 }
 type AlertWrapperProps = AlertWrapperCustomProps & StylesAndChildren;
 /** Top level of the Alert ecosystem. Wraps children with props-based styling */
@@ -24,15 +24,16 @@ export const AlertWrapper = ({
   severity,
   slim,
   site,
-  emergency,
+  noIcon,
   className,
   children,
 }: AlertWrapperProps) => {
   if (site) {
     const styling: string[] = ["usa-site-alert"];
-    if (emergency) {
-      styling.push("usa-site-alert--emergency");
+    if (noIcon) {
+      styling.push("usa-site-alert--no-icon");
     }
+    styling.push("usa-site-alert--emergency");
     if (slim) {
       styling.push("usa-site-alert--slim");
     }
@@ -43,6 +44,9 @@ export const AlertWrapper = ({
     );
   } else {
     const styling: string[] = ["usa-alert"];
+    if (noIcon) {
+      styling.push("usa-alert--no-icon");
+    }
     if (severity) {
       styling.push(`usa-alert--${severity}`);
     } else {
@@ -87,7 +91,7 @@ export const Alert = ({
   severity,
   slim,
   site,
-  emergency,
+  noIcon,
   wrapperClasses,
   bodyClasses,
   headingClasses,
@@ -96,8 +100,8 @@ export const Alert = ({
   return (
     <AlertWrapper
       slim={slim}
-      emergency={emergency}
       site={site}
+      noIcon={noIcon}
       severity={severity}
       className={wrapperClasses}
     >
