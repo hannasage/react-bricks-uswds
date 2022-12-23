@@ -8,3 +8,6 @@
 
 # Node
 /node_modules
+
+# Package manager
+yarn-error.log
