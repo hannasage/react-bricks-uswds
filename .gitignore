@@ -8,6 +8,7 @@
 
 # Node
 /node_modules
+.env
 
 # Package manager
 yarn-error.log
