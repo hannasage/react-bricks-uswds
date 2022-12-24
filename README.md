@@ -1,4 +1,4 @@
-# USWDS Bricks
+# React Bricks: USWDS Edition
 
 A component library that puts the power of composition in your hands.
 
