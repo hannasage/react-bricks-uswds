@@ -4,7 +4,9 @@ import "../../assets/css/styles.css";
 
 type StylesAndChildren = PropsWithChildren & StyleProps;
 
-// Enumerate the available severity levels
+// Emergency was omitted in favor of `site` prop. Using the `site` boolean will
+// automatically imply an Emergency severity.
+// See: https://designsystem.digital.gov/components/site-alert/
 export enum AlertSeverity {
   SUCCESS = "success",
   ERROR = "error",
@@ -19,7 +21,8 @@ interface AlertWrapperCustomProps {
   site?: boolean;
 }
 type AlertWrapperProps = AlertWrapperCustomProps & StylesAndChildren;
-/** Top level of the Alert ecosystem. Wraps children with props-based styling */
+// Top level of the Alert ecosystem; wraps children with props-based styling.
+// Required use when building with bricks
 export const AlertWrapper = ({
   severity,
   slim,
@@ -29,38 +32,37 @@ export const AlertWrapper = ({
   children,
 }: AlertWrapperProps) => {
   if (site) {
-    const styling: string[] = ["usa-site-alert"];
-    if (noIcon) {
-      styling.push("usa-site-alert--no-icon");
-    }
-    styling.push("usa-site-alert--emergency");
-    if (slim) {
-      styling.push("usa-site-alert--slim");
-    }
+    // Style handler for SiteAlert
+    const siteAlertStyles: string[] = [
+      "usa-site-alert",
+      "usa-site-alert--emergency",
+    ];
+    if (noIcon) siteAlertStyles.push("usa-site-alert--no-icon");
+    if (slim) siteAlertStyles.push("usa-site-alert--slim");
+    // Returns separately because SiteAlert uses section while alert uses div
     return (
-      <section className={`${styling.join(" ")}`}>
+      <section className={`${siteAlertStyles.join(" ")}`}>
         <div className={`usa-alert ${className}`}>{children}</div>
       </section>
     );
   } else {
-    const styling: string[] = ["usa-alert"];
-    if (noIcon) {
-      styling.push("usa-alert--no-icon");
-    }
+    // Style handler for Alert
+    const alertStyles: string[] = ["usa-alert"];
+    if (noIcon) alertStyles.push("usa-alert--no-icon");
+    if (slim) alertStyles.push("usa-alert--slim");
     if (severity) {
-      styling.push(`usa-alert--${severity}`);
+      alertStyles.push(`usa-alert--${severity}`);
     } else {
-      styling.push(`usa-alert--${AlertSeverity.INFO}`);
-    }
-    if (slim) {
-      styling.push("usa-alert--slim");
+      alertStyles.push(`usa-alert--${AlertSeverity.INFO}`);
     }
     return (
-      <div className={`${styling.join(" ")} ${className}`}>{children}</div>
+      <div className={`${alertStyles.join(" ")} ${className}`}>{children}</div>
     );
   }
 };
-/** Second level of the Alert ecosystem. Wraps children with props-based styling */
+
+// Second level of the Alert ecosystem; wraps children with props-based styling.
+// Required use when building with bricks
 export const AlertBody = ({ children, className }: StylesAndChildren) => {
   return <div className={`usa-alert__body ${className}`}>{children}</div>;
 };
@@ -68,12 +70,16 @@ export const AlertBody = ({ children, className }: StylesAndChildren) => {
 interface AlertHeadingProps extends StyleProps {
   text: string;
 }
+// Heading brick
+// Optional use to add a heading to your alert
 export const AlertHeading = ({ className, text }: AlertHeadingProps) => {
   return <h4 className={`usa-alert__heading ${className}`}>{text}</h4>;
 };
 
 type AlertTextProps = PropsWithChildren & StyleProps;
-export const AlertText = ({ children, className }: AlertTextProps) => {
+// Content brick
+// Optional use to add a heading to your alert
+export const AlertContent = ({ children, className }: AlertTextProps) => {
   return <p className={`usa-alert__text ${className}`}>{children}</p>;
 };
 
@@ -85,6 +91,8 @@ interface AlertProps extends AlertWrapperCustomProps {
   headingClasses?: string;
   textClasses?: string;
 }
+// Full component, pipes props through to bricks
+// All functionality should be accessible via the bricks and this component
 export const Alert = ({
   heading,
   content,
@@ -107,7 +115,9 @@ export const Alert = ({
     >
       <AlertBody className={bodyClasses}>
         {heading && <AlertHeading className={headingClasses} text={heading} />}
-        {content && <AlertText className={textClasses}>{content}</AlertText>}
+        {content && (
+          <AlertContent className={textClasses}>{content}</AlertContent>
+        )}
       </AlertBody>
     </AlertWrapper>
   );

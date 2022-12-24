@@ -4,7 +4,7 @@ import {
   Alert,
   AlertBody,
   AlertHeading,
-  AlertText,
+  AlertContent,
   AlertWrapper,
   AlertSeverity,
 } from "../bricks/Alert";
@@ -24,11 +24,11 @@ Alert components in the past have relied on a single `props` interface and limit
     <AlertWrapper severity={AlertSeverity.INFO}>
       <AlertBody>
         <AlertHeading text="A sample alert heading" />
-        <AlertText>
+        <AlertContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
           tristique elementum felis. In vehicula magna augue, sit amet fringilla
           lectus finibus a. Integer id tempus dolor.
-        </AlertText>
+        </AlertContent>
       </AlertBody>
     </AlertWrapper>
   </Story>
@@ -52,12 +52,12 @@ While the above example utilizes the `bricks` pattern, you can still use a singu
 Not all alerts are the same. Sometimes their intent is to inform, other times warn. For this, in both the `Alert` component, and it's `AlertWrapper` brick, you can utilize the `severity` prop to differentiate these intents.
 
 <Canvas>
-  <Story name="Severity">
+  <Story name="Severity (Standard)">
     <AlertWrapper severity={AlertSeverity.WARNING}>
       <AlertBody>
-        <AlertText>
+        <AlertContent>
           A warning for users of your site
-        </AlertText>
+        </AlertContent>
       </AlertBody>
     </AlertWrapper>
     <Alert 
@@ -71,17 +71,15 @@ Not all alerts are the same. Sometimes their intent is to inform, other times wa
   </Story>
 </Canvas>
 
-#### Emergency
-
 In the USWDS component system, an `Alert` and `SiteAlert`, while sharing some common visual elements, are meant to denote different levels of severity; the latter is an emergency. Due to similarities, logic is baked in to allow for reuse of the bricks **and** component approaches.
 
 <Canvas>
-  <Story name="Emergency (SiteAlert)">
+  <Story name="Severity (SiteAlert)">
     <AlertWrapper site>
       <AlertBody>
-        <AlertText>
+        <AlertContent>
           An emergency site alert for users!
-        </AlertText>
+        </AlertContent>
       </AlertBody>
     </AlertWrapper>
     <Alert 
@@ -99,9 +97,9 @@ An `Alert` or `SiteAlert` can be standard sized, or `slim`. Using the `slim` pro
   <Story name="Slim">
     <AlertWrapper slim>
       <AlertBody>
-        <AlertText>
+        <AlertContent>
           A slimmer alert
-        </AlertText>
+        </AlertContent>
       </AlertBody>
     </AlertWrapper>
     <Alert 
@@ -119,9 +117,9 @@ Finally, if you'd like to remove the icon from your alter, utilize the `noIcon` 
   <Story name="No Icon">
     <AlertWrapper noIcon severity={AlertSeverity.SUCCESS}>
       <AlertBody>
-        <AlertText>
+        <AlertContent>
           <b>Success</b> alert with no icon
-        </AlertText>
+        </AlertContent>
       </AlertBody>
     </AlertWrapper>
     <Alert 
