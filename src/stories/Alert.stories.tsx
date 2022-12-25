@@ -1,26 +1,26 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory } from "@storybook/react";
 import {
-  Alert,
-  AlertBody,
-  AlertContent,
-  AlertHeading,
-  AlertWrapper,
+  USAlert,
+  USAlertBody,
+  USAlertContent,
+  USAlertHeading,
+  USAlertWrapper,
 } from "../bricks/Alert";
 
 export default {
   title: "Alert2",
-  component: Alert,
+  component: USAlert,
   subcomponents: {
-    AlertBody,
-    AlertContent,
-    AlertHeading,
-    AlertWrapper,
+    USAlertBody,
+    USAlertContent,
+    USAlertHeading,
+    USAlertWrapper,
   },
 };
 
 const ComponentTemplate: ComponentStory<typeof Alert> = (args) => (
-  <Alert {...args} />
+  <USAlert {...args} />
 );
 
 export const Primary = ComponentTemplate.bind({});
