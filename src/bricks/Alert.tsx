@@ -1,8 +1,6 @@
 import React, { PropsWithChildren } from "react";
-import { StyleProps } from "../util/genericProps";
+import { StyleProps, StylesAndChildren } from "../util/genericProps";
 import "../../assets/css/styles.css";
-
-type StylesAndChildren = PropsWithChildren & StyleProps;
 
 // Emergency was omitted in favor of `site` prop. Using the `site` boolean will
 // automatically imply an Emergency severity.
