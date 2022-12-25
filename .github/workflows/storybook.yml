@@ -1,4 +1,12 @@
-- name: Deploy storybook to GitHub Pages
-  run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
-  env:
-    GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+name: Deploy Docs
+on: 
+  push:
+    paths: ["src/stories/**"] # Trigger the action only when files change in the folders defined here
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy storybook to GitHub Pages
+        run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
