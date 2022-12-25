@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs",
-    "deploy-storybook": "storybook-to-ghpages --ci --host-token-env-variable=GITHUB_TOKEN",
+    "deploy-storybook": "storybook-to-ghpages",
     "build": "tsup src/index.ts --dts"
   },
   "repository": {

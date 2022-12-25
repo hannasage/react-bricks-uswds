@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Deploy storybook to GitHub Pages
         uses: ./
-        run: yarn deploy-storybook
+        run: yarn deploy-storybook --ci --host-token-env-variable=GITHUB_TOKEN
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
