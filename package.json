@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build",
+    "deploy-storybook": "storybook-to-ghpages",
     "build": "tsup src/index.ts --dts"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "@storybook/builder-webpack4": "^6.5.15",
     "@storybook/manager-webpack4": "^6.5.15",
     "@storybook/react": "^6.5.15",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.15",
     "@types/react": "^18.0.26",
