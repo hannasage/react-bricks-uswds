@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy storybook to GitHub Pages
-        uses: ./
-        run: yarn deploy-storybook --ci --host-token-env-variable=GITHUB_TOKEN
+        run: cd react-bricks-uswds/react-bricks-uswds; yarn deploy-storybook --ci --host-token-env-variable=GITHUB_TOKEN
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
