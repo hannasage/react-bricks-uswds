@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs-build",
     "build": "tsup src/index.ts --dts"
   },
   "repository": {
@@ -55,6 +54,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@uswds/uswds": "^3.3.0"
+    "@uswds/uswds": "^3.3.0",
+    "react-router-dom": "^6.6.1"
   }
 }

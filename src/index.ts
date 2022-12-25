@@ -1,3 +1,8 @@
-import { Alert, AlertBody, AlertHeading, AlertContent } from "./bricks/Alert";
+import {
+  USAlert,
+  USAlertBody,
+  USAlertHeading,
+  USAlertContent,
+} from "./bricks/Alert";
 
-export { Alert, AlertBody, AlertHeading, AlertContent as AlertText };
+export { USAlert, USAlertBody, USAlertHeading, USAlertContent };
