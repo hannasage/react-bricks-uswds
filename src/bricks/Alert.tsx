@@ -5,30 +5,30 @@ import "../../assets/css/styles.css";
 // Emergency was omitted in favor of `site` prop. Using the `site` boolean will
 // automatically imply an Emergency severity.
 // See: https://designsystem.digital.gov/components/site-alert/
-export enum AlertSeverity {
+export enum USAlertSeverity {
   SUCCESS = "success",
   ERROR = "error",
   WARNING = "warning",
   INFO = "info",
 }
 
-interface AlertWrapperCustomProps {
-  severity?: AlertSeverity;
+interface USAlertWrapperCustomProps {
+  severity?: USAlertSeverity;
   slim?: boolean;
   noIcon?: boolean;
   site?: boolean;
 }
-type AlertWrapperProps = AlertWrapperCustomProps & StylesAndChildren;
+type USAlertWrapperProps = USAlertWrapperCustomProps & StylesAndChildren;
 // Top level of the Alert ecosystem; wraps children with props-based styling.
 // Required use when building with bricks
-export const AlertWrapper = ({
+export const USAlertWrapper = ({
   severity,
   slim,
   site,
   noIcon,
   className,
   children,
-}: AlertWrapperProps) => {
+}: USAlertWrapperProps) => {
   if (site) {
     // Style handler for SiteAlert
     const siteAlertStyles: string[] = [
@@ -51,7 +51,7 @@ export const AlertWrapper = ({
     if (severity) {
       alertStyles.push(`usa-alert--${severity}`);
     } else {
-      alertStyles.push(`usa-alert--${AlertSeverity.INFO}`);
+      alertStyles.push(`usa-alert--${USAlertSeverity.INFO}`);
     }
     return (
       <div className={`${alertStyles.join(" ")} ${className}`}>{children}</div>
@@ -61,27 +61,27 @@ export const AlertWrapper = ({
 
 // Second level of the Alert ecosystem; wraps children with props-based styling.
 // Required use when building with bricks
-export const AlertBody = ({ children, className }: StylesAndChildren) => {
+export const USAlertBody = ({ children, className }: StylesAndChildren) => {
   return <div className={`usa-alert__body ${className}`}>{children}</div>;
 };
 
-interface AlertHeadingProps extends StyleProps {
+interface USAlertHeadingProps extends StyleProps {
   text: string;
 }
 // Heading brick
 // Optional use to add a heading to your alert
-export const AlertHeading = ({ className, text }: AlertHeadingProps) => {
+export const USAlertHeading = ({ className, text }: USAlertHeadingProps) => {
   return <h4 className={`usa-alert__heading ${className}`}>{text}</h4>;
 };
 
-type AlertTextProps = PropsWithChildren & StyleProps;
+type USAlertTextProps = PropsWithChildren & StyleProps;
 // Content brick
 // Optional use to add a heading to your alert
-export const AlertContent = ({ children, className }: AlertTextProps) => {
+export const USAlertContent = ({ children, className }: USAlertTextProps) => {
   return <p className={`usa-alert__text ${className}`}>{children}</p>;
 };
 
-interface AlertProps extends AlertWrapperCustomProps {
+interface USAlertProps extends USAlertWrapperCustomProps {
   heading: string;
   content: string | React.ReactNode;
   wrapperClasses?: string;
@@ -91,7 +91,7 @@ interface AlertProps extends AlertWrapperCustomProps {
 }
 // Full component, pipes props through to bricks
 // All functionality should be accessible via the bricks and this component
-export const Alert = ({
+export const USAlert = ({
   heading,
   content,
   severity,
@@ -102,21 +102,23 @@ export const Alert = ({
   bodyClasses,
   headingClasses,
   textClasses,
-}: AlertProps) => {
+}: USAlertProps) => {
   return (
-    <AlertWrapper
+    <USAlertWrapper
       slim={slim}
       site={site}
       noIcon={noIcon}
       severity={severity}
       className={wrapperClasses}
     >
-      <AlertBody className={bodyClasses}>
-        {heading && <AlertHeading className={headingClasses} text={heading} />}
-        {content && (
-          <AlertContent className={textClasses}>{content}</AlertContent>
+      <USAlertBody className={bodyClasses}>
+        {heading && (
+          <USAlertHeading className={headingClasses} text={heading} />
         )}
-      </AlertBody>
-    </AlertWrapper>
+        {content && (
+          <USAlertContent className={textClasses}>{content}</USAlertContent>
+        )}
+      </USAlertBody>
+    </USAlertWrapper>
   );
 };

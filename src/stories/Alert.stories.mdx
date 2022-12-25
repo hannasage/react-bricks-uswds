@@ -1,14 +1,14 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import {
-  Alert,
-  AlertBody,
-  AlertHeading,
-  AlertContent,
-  AlertWrapper,
-  AlertSeverity,
+  USAlert,
+  USAlertBody,
+  USAlertHeading,
+  USAlertContent,
+  USAlertWrapper,
+  USAlertSeverity
 } from "../bricks/Alert";
 
-<Meta title="Alert" component={Alert} />
+<Meta title="Alert" component={USAlert} />
 
 # Alerts
 
@@ -16,20 +16,20 @@ import {
 
 ## Bricks and Components
 
-Alert components in the past have relied on a single `props` interface and limit developers in their ability to adapt to the user's need. In keeping with the USWDS mindset of listen and adapt, providing blocks like `AlertWrapper` or `AlertText` lets users build custom implementations easier without needing to invoke a GitHub issue, or reverse engineering the solution provided in the given component library.
+Alert components in the past have relied on a single `props` interface and limit developers in their ability to adapt to the user's need. In keeping with the USWDS mindset of listen and adapt, providing blocks like `USAlertWrapper` or `USAlertBody` lets users build custom implementations easier without needing to invoke a GitHub issue, or reverse engineering the solution provided in the given component library.
 
 <Canvas>
   <Story name="Bricks">
-    <AlertWrapper severity={AlertSeverity.INFO}>
-      <AlertBody>
-        <AlertHeading text="A sample alert heading" />
-        <AlertContent>
+    <USAlertWrapper severity={USAlertSeverity.INFO}>
+      <USAlertBody>
+        <USAlertHeading text="A sample alert heading" />
+        <USAlertContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
           tristique elementum felis. In vehicula magna augue, sit amet fringilla
           lectus finibus a. Integer id tempus dolor.
-        </AlertContent>
-      </AlertBody>
-    </AlertWrapper>
+        </USAlertContent>
+      </USAlertBody>
+    </USAlertWrapper>
   </Story>
 </Canvas>
 
@@ -37,7 +37,7 @@ While the above example utilizes the `bricks` pattern, you can still use a singu
 
 <Canvas>
   <Story name="Component">
-    <Alert 
+    <USAlert 
       heading="A sample alert heading" 
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
         tristique elementum felis. In vehicula magna augue, sit amet fringilla
@@ -48,23 +48,23 @@ While the above example utilizes the `bricks` pattern, you can still use a singu
 
 ## Variations of severity
 
-Not all alerts are the same. Sometimes their intent is to inform, other times warn. For this, in both the `Alert` component, and it's `AlertWrapper` brick, you can utilize the `severity` prop to differentiate these intents.
+Not all alerts are the same. Sometimes their intent is to inform, other times warn. For this, in both the `Alert` component, and it's `USAlertWrapper` brick, you can utilize the `severity` prop to differentiate these intents.
 
 <Canvas>
   <Story name="Severity (Standard)">
-    <AlertWrapper severity={AlertSeverity.WARNING}>
-      <AlertBody>
-        <AlertContent>
+    <USAlertWrapper severity={USAlertSeverity.WARNING}>
+      <USAlertBody>
+        <USAlertContent>
           A warning for users of your site
-        </AlertContent>
-      </AlertBody>
-    </AlertWrapper>
-    <Alert 
-      severity={AlertSeverity.ERROR}
+        </USAlertContent>
+      </USAlertBody>
+    </USAlertWrapper>
+    <USAlert 
+      severity={USAlertSeverity.ERROR}
       content="An error notice for users of your site"
     />
-    <Alert 
-      severity={AlertSeverity.SUCCESS}
+    <USAlert 
+      severity={USAlertSeverity.SUCCESS}
       content="You did it! A success message for users of your site"
     />
   </Story>
@@ -74,14 +74,14 @@ In the USWDS component system, an `Alert` and `SiteAlert`, while sharing some co
 
 <Canvas>
   <Story name="Severity (SiteAlert)">
-    <AlertWrapper site>
-      <AlertBody>
-        <AlertContent>
+    <USAlertWrapper site>
+      <USAlertBody>
+        <USAlertContent>
           An emergency site alert for users!
-        </AlertContent>
-      </AlertBody>
-    </AlertWrapper>
-    <Alert 
+        </USAlertContent>
+      </USAlertBody>
+    </USAlertWrapper>
+    <USAlert 
       site
       content="An emergency site alert for users!"
     />
@@ -90,18 +90,18 @@ In the USWDS component system, an `Alert` and `SiteAlert`, while sharing some co
 
 ## Sizing
 
-An `Alert` or `SiteAlert` can be standard sized, or `slim`. Using the `slim` prop in either the component or `AlertWrapper` brick props, you can change the size of an alert.
+An `Alert` or `SiteAlert` can be standard sized, or `slim`. Using the `slim` prop in either the component or `USAlertWrapper` brick props, you can change the size of an alert.
 
 <Canvas>
   <Story name="Slim">
-    <AlertWrapper slim>
-      <AlertBody>
-        <AlertContent>
+    <USAlertWrapper slim>
+      <USAlertBody>
+        <USAlertContent>
           A slimmer alert
-        </AlertContent>
-      </AlertBody>
-    </AlertWrapper>
-    <Alert 
+        </USAlertContent>
+      </USAlertBody>
+    </USAlertWrapper>
+    <USAlert 
       slim
       content="A slimmer alert"
     />
@@ -114,14 +114,14 @@ Finally, if you'd like to remove the icon from your alter, utilize the `noIcon` 
 
 <Canvas>
   <Story name="No Icon">
-    <AlertWrapper noIcon severity={AlertSeverity.SUCCESS}>
-      <AlertBody>
-        <AlertContent>
+    <USAlertWrapper noIcon severity={USAlertSeverity.SUCCESS}>
+      <USAlertBody>
+        <USAlertContent>
           <b>Success</b> alert with no icon
-        </AlertContent>
-      </AlertBody>
-    </AlertWrapper>
-    <Alert 
+        </USAlertContent>
+      </USAlertBody>
+    </USAlertWrapper>
+    <USAlert 
       noIcon
       site
       content="Site emergency with no icon!"
