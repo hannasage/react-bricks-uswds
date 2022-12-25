@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy storybook to GitHub Pages
-        run: yarn deploy-storybook --ci --host-token-env-variable=GITHUB_TOKEN
+        uses: ./
+        run: yarn deploy-storybook
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
