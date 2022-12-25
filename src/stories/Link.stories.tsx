@@ -1,13 +1,6 @@
 import React from "react";
-import { ComponentStory } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
-import {
-  USCrumbLink,
-  USExtLink,
-  USLink,
-  USLinkUse,
-  USNavLink,
-} from "../bricks/Link";
+import { USCrumbLink, USExtLink, USLink, USNavLink } from "../bricks/Link";
 
 //TODO: Update docs with examples
 // const Docs = () => {
