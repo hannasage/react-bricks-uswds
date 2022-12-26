@@ -91,7 +91,7 @@ export const USAlert = ({
 }
 ```
 
-Aside from the obvious difference in naming and props piping styles to every level, it's pretty much the same thing, right? Yes! This is why it's important to remember that it's bricks _and_ components, not bricks _or_ components. Bricks are just the elemental pieces of a component. Now, that said, here's where this pattern's utilty really is: this package not only includes standard components, but also exports each brick so that you aren't beholden to the above dom structure.
+Aside from the obvious difference in naming and props piping styles to every level, it's pretty much the same thing, right? Yes! This is why it's important to remember that it's bricks _and_ components, not bricks _or_ components. Bricks are just the elemental pieces of a component. Now, that said, here's where this pattern's utilty really is: this package not only includes standard components, but also exports each brick so that you aren't beholden to the above dom structure, _and_ your css can be written as reusable classes rather than a single-use block.
 
 In short, opening clients up, not only to the components, but to the bricks as well, makes your component packages much less opinionated and way more felxible.
 
