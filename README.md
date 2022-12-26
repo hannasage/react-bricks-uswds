@@ -4,6 +4,8 @@ A component library that puts the power of composition in your hands.
 
 ## What's a brick?
 
+>**Unrelated** to reactbricks.com, a CMS service for React frameworks like NextJS and Remix
+
 Have you ever played with LEGOs? Bricks come in a plethora of shapes and sizes, with very clear input and outputs, that can be compounded to form complex "_components_" like a house's walls, or the [International Space Station](https://www.lego.com/en-us/product/international-space-station-21321) (I totally asked for this at Christmas time). React's component system is great, because a single functional component can be anything from a uniform application of styling, up to a full component system with complex `props` interfaces. The problem with the latter, however, is that you can't always count on end users needing the same configurations...even within a standard design system.
 
 Bricks, instead, are the former of those; a uniform application of the styling and limited "hard" rules of the design system. These bricks can be used to fine tune your components, so however complex you need to make their configurations, or how custom your implementation, you can rest assured you're adhering to the design system.
