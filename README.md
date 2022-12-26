@@ -25,7 +25,7 @@ Consider the following impelmentation of an Alert:
 
 ```typescript
 return (
-  <div className={`usa-alert ${props.className}`} data-testid="alert">
+  <div className={`usa-alert ${props.className}`}>
     <div className="usa-alert__body">
       {heading && <h4 className="usa-alert__heading">{heading}</h4>}
       {children && <div>{children}</div>}
