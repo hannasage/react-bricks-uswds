@@ -34,7 +34,7 @@ return (
 )
 ```
 
-In the above exported component, the main restriction is that custom classes can only exist at the parent `div` level. This means, for one, you as the engineer will have to peruse this code to discover the limitations. Second, your css would have to consider this and be written strictly, removing any hope of reuse:
+In the above exported component, the main restriction is that custom classes can only exist at the parent `div` level. This means, because this code is from an installed package, you as the engineer using the package will have to sleuth through source code to discover these limitations and create workarounds. A workaround for something like this, aside from submitting an issue and hoping for the best, might look like: 
 
 ```css
 .usa-alert {
@@ -44,9 +44,11 @@ In the above exported component, the main restriction is that custom classes can
 }
 ```
 
-However, not every team is writing css, not every team needs custom styles, but _all_ teams require brevity. A component's main utility is providing clean interfaces for quickly configuring pieces of your UI without the need to worry about dom structure or styling, and that has _always_ been the most invaluable utility of componentized front-ends!
+The above CSS serves a single use, which means any custom styling overrides needed result in larger css files than we'd like.
 
-While _some_ standards exist inside rigid bounds, however, others can and should always be flexed when a [stress case](https://merlin.rebrovic.net/blog/edge-stress-cases/) is presented. 
+However, not every team is writing css, not every team needs custom styles, but _all_ teams require brevity. A component's main utility is providing clean interfaces for quickly configuring pieces of your UI without the need to worry about dom structure or styling, and that has _always_ been the most invaluable utility of componentized front-ends! A component library should always export a full component interface with the default implementation, as many design systems consider these implementations in a "suits most cases" kind of way.
+
+Though _some_ standards exist inside rigid bounds, others can and should always be flexed when a [stress case](https://merlin.rebrovic.net/blog/edge-stress-cases/) is presented. 
 
 #### Bricks
 
@@ -89,7 +91,7 @@ export const USAlert = ({
 }
 ```
 
-Aside from the obvious difference in naming, it's pretty much the same thing, right? Yes! This is why it's important to remember that it's bricks _and_ components, not bricks _or_ components. Bricks are just the elemental pieces of a component. Now, that said, here's where this pattern's utilty really is: this package not only includes standard components, but also exports each brick so that you aren't beholden to the above dom structure.
+Aside from the obvious difference in naming and props piping styles to every level, it's pretty much the same thing, right? Yes! This is why it's important to remember that it's bricks _and_ components, not bricks _or_ components. Bricks are just the elemental pieces of a component. Now, that said, here's where this pattern's utilty really is: this package not only includes standard components, but also exports each brick so that you aren't beholden to the above dom structure.
 
 In short, opening clients up, not only to the components, but to the bricks as well, makes your component packages much less opinionated and way more felxible.
 
