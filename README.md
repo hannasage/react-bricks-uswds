@@ -46,7 +46,7 @@ In the above exported component, the main restriction is that custom classes can
 
 However, not every team is writing css, not every team needs custom styles, but _all_ teams require brevity. A component's main utility is providing clean interfaces for quickly configuring pieces of your UI without the need to worry about dom structure or styling, and that has _always_ been the most invaluable utility of componentized front-ends!
 
-While _some_ standards exist inside rigid bounds, however, others can and should always be flexed when a [stress case] (https://merlin.rebrovic.net/blog/edge-stress-cases/) is presented. 
+While _some_ standards exist inside rigid bounds, however, others can and should always be flexed when a [stress case](https://merlin.rebrovic.net/blog/edge-stress-cases/) is presented. 
 
 #### Bricks
 
